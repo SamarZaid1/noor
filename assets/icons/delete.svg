@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="28.5" viewBox="0 0 20 28.5">
+  <g id="Component_24_1" data-name="Component 24 – 1" transform="translate(0.5)">
+    <path id="Icon_material-delete" data-name="Icon material-delete" d="M25.589,6H21.067L19.775,4.5h-6.46L12.022,6H7.5V9H25.589Z" transform="translate(-7.5 -4.5)" fill="#2673d1"/>
+    <path id="Icon_material-delete-2" data-name="Icon material-delete" d="M9,28.5a3.009,3.009,0,0,0,3,3H24a3.009,3.009,0,0,0,3-3v-18H9ZM28.5,9Z" transform="translate(-9 -3.5)" fill="none" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>
