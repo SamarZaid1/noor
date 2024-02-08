@@ -12,17 +12,16 @@ import 'dart:io';
 
 class AuthApi {
   var dio = Dio();
-  //var dio = locator<httpDio.Dio>();
-//"Login": "{'email':'2023/02/005','password':'12345'}"
   Future loginFun({required String userName, required String password}) async {
     try {
+      //"{'email':'2024/01/527','password':'1234'}"
       var response = await dio.get(
         "${RouteApi.HOST}${RouteApi.AUTH_LOGIN}",
         options: Options(headers: {
           "Authorization": "Basic Zzd0RkNNTHBTN3hid1FmMHRkVUxhUGdHck5zaExweEs6",
           "Accept": "*/*",
-          "db_name": "alnoor",
-          "Login": "{'email':'2023/02/005','password':'12345'}"
+          "db_name": "${RouteApi.DB}",
+          "Login": "{'email':'${userName}','password':'${password}'}"
         }),
       );
       print("samar${response.data}");

@@ -14,13 +14,13 @@ import 'login_controller.dart';
 import 'package:noor/core/contracts/view.dart';
 
 class LoginView extends View1<LoginController> {
-  //final LoginController controller = Get.put(LoginController());
+  final LoginController controller = Get.put(LoginController());
 //اذا احتجت استدعي كنترولار ثاني استخدم ال getx واذكر اسم الكنترولار الي معرف داخل البيندنق
   @override
   Widget build(BuildContext context) {
     var validtor = ValidateHelper.of(context);
     return Directionality(
-        textDirection: TextDirection.ltr,
+        textDirection: TextDirection.rtl,
         child: Scaffold(
             appBar: AppBar(),
             body: SingleChildScrollView(
@@ -49,7 +49,7 @@ class LoginView extends View1<LoginController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "loginTitle".tr,
+                                    /*"loginTitle".tr*/ "اهلاً وسهلاََ بك",
                                     style: Theme.of(context)
                                         .textTheme
                                         .subtitle1!
@@ -62,7 +62,7 @@ class LoginView extends View1<LoginController> {
                                     height: 1.h,
                                   ),
                                   Text(
-                                    "login".tr,
+                                    /*"login".tr*/ "تسجيل الدخول",
                                     style: Theme.of(context)
                                         .textTheme
                                         .headline1!
@@ -88,15 +88,17 @@ class LoginView extends View1<LoginController> {
                                               Icons.phone,
                                               color: ThemeColor.grayColor,
                                             ),
-                                            inputFormatters: [
+                                            /*inputFormatters: [
                                               FilteringTextInputFormatter(
                                                   RegExp("[0-9]"),
                                                   allow: true),
                                               LengthLimitingTextInputFormatter(
                                                   9)
-                                            ],
-                                            label: 'phoneNumber'.tr,
-                                            hint: 'enterPhoneNumber'.tr,
+                                            ],*/
+                                            label: /*'phoneNumber'.tr*/
+                                                "الرقم الجامعي",
+                                            hint: /*'enterPhoneNumber'.tr*/
+                                                "ادخل الرقم الجامعي",
                                             //  validatorobject: validtor.phone,
                                             validatorobject: validtor.required,
                                             textInputType: TextInputType.text,
@@ -126,8 +128,8 @@ class LoginView extends View1<LoginController> {
                                         !controller.hidePassword.value;
                                   },
                                 ),
-                                label: 'passWord'.tr,
-                                hint: 'enterPassword'.tr,
+                                label: /*'passWord'.tr*/ "كلمة المرور",
+                                hint: /*'enterPassword'.tr*/ "ادخل كلمة المرور",
                                 textInputType: TextInputType.visiblePassword,
                                 controller: controller.passwordTextController,
                                 hide: controller.hidePassword.value,
@@ -144,7 +146,7 @@ class LoginView extends View1<LoginController> {
                                     padding: const EdgeInsets.only(
                                         left: 15.0, right: 15.0),
                                     child: Text(
-                                      'didForgetPassword'.tr,
+                                      /*'didForgetPassword'.tr*/ "هل نسيت كلمة المرور",
                                       style: Theme.of(context)
                                           .textTheme
                                           .subtitle1!
@@ -189,7 +191,12 @@ class LoginView extends View1<LoginController> {
                                           onPressed: () {
                                             // Get.toNamed(Routes.HomePage);
                                             controller.login(
-                                                "userName", "password");
+                                                controller
+                                                    .userphoneTextController
+                                                    .text,
+                                                controller
+                                                    .passwordTextController
+                                                    .text);
                                           },
                                           child: Padding(
                                             padding: EdgeInsets.all(4.w),
@@ -197,7 +204,7 @@ class LoginView extends View1<LoginController> {
                                               () => controller.isLoading.value
                                                   ? sizedCircularProgress()
                                                   : Text(
-                                                      'login'.tr,
+                                                      /*'login'.tr*/ "تسجيل الدخول",
                                                       style: Theme.of(context)
                                                           .textTheme
                                                           .headline1!
@@ -243,7 +250,7 @@ class LoginView extends View1<LoginController> {
                                                     ))),
                                           ),
                                           onPressed: () {
-                                            Get.toNamed(Routes.HomePage);
+                                            // Get.toNamed(Routes.HomePage);
                                           },
                                           child: Padding(
                                             padding: EdgeInsets.all(3.w),

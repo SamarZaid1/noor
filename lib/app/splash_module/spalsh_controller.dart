@@ -20,13 +20,14 @@ class SpalshController extends Contorller {
     super.onInit();
   }
 
-  final splashDelay = kDebugMode ? 6 : 6;
+  final splashDelay = kDebugMode ? 3 : 6;
 
   loadingTime() async {
     Timer(Duration(seconds: splashDelay), () async {
       await controller.checkIsLogined();
+      //Get.offAllNamed(Routes.LoginPage);
     });
-  /*  GetStorage().read('is_viewIntro') == null ?
+    /*  GetStorage().read('is_viewIntro') == null ?
     await GetStorage().write('is_viewIntro', false)
         : null;
     Timer(Duration(seconds: splashDelay), () async {

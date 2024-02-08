@@ -21,55 +21,69 @@ class ProfileView extends View1<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-        textDirection: TextDirection.ltr,
-        child: SafeArea(
-          child: Scaffold(
+        textDirection: TextDirection.rtl,
+        child:  Scaffold(
+          appBar: AppBar(
+            centerTitle: false,
+            title:   Text("الملف الشخصي",
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1!
+                    .copyWith(
+                    fontFamily: AppFonts.cairo,
+                    fontSize: 12.sp,
+                    color: ThemeColor.accentColor)),
+            backgroundColor: ThemeColor.primaryColor,),
               body: ListView(
             children: [
-              SizedBox(
-                height: 5.h,
-              ),
               header(),
-              const SizedBox(
-                height: 15.0,
-              ),
+              //Divider(),
+
               Padding(
                   padding: EdgeInsets.all(8.sp),
                   child: Card(
                       elevation: 0.5,
                       child: Column(children: [
                         buildListTile(
-                            "assets/icons/edit.svg", "Personal File".tr, () {
+                            "assets/icons/edit.svg", "بيانات الطالب".tr, () {
                           Get.toNamed(Routes.StudentProfileView);
                         }),
                         buildListTile("assets/icons/schedules.svg",
-                            "Schedules".tr, () {}),
-                        buildListTile(
-                            "assets/icons/result.svg", "My Results ".tr, () {}),
-                        buildListTile(
-                            "assets/icons/exam.svg", "My Exams".tr, () {}),
-                        buildListTile("assets/icons/subject.svg",
-                            "My Subjects".tr, () {}),
-                        buildListTile("assets/icons/homeWork.svg",
-                            "My Home Work".tr, () {}),
-                        buildListTile("assets/icons/circulars.svg",
-                            "University Circulars".tr, () {}),
-                        buildListTile("assets/icons/lang.svg", "Changeling".tr,
-                            () {
-                          LangView().buildLanguageDialog(context);
+                            "جدول المحاضرات", () {}),
+                        buildListTile("assets/icons/result.svg", "النتائج", () {
+                          Get.toNamed(Routes.StudentExamResultView);
                         }),
-                        buildListTile("assets/icons/logout.svg", "LogOut".tr,
+                        buildListTile("assets/icons/exam.svg", "الاختبارات",
+                            () {
+                          Get.toNamed(Routes.StudentExamView);
+                        }),
+                        buildListTile(
+                            "assets/icons/subject.svg", "المواد الدراسية", () {
+                          Get.toNamed(Routes.StudentSubjectView);
+                        }),
+                        /*  buildListTile("assets/icons/homeWork.svg",
+                            "My Home Work".tr, () {}),*/
+                        buildListTile(
+                            "assets/icons/circulars.svg", "الاشعارات المالية",
+                            () {
+                          Get.toNamed(Routes.StudentFeesView);
+                        }),
+                        /*  buildListTile("assets/icons/lang.svg", "اللغة",
+                            () {
+                        //  LangView().buildLanguageDialog(context);
+                        }),*/
+                        buildListTile("assets/icons/logout.svg", "تسجيل الخروج",
                             () {
                           AwesomeDialog(
                             context: context,
                             animType: AnimType.scale,
                             dialogType: DialogType.warning,
                             dialogBackgroundColor: ThemeColor.accentColor,
-                            desc: 'DO_YOU_WANT_TO_EXIT_THE_APP'.tr,
-                            btnCancelText: "cancel".tr,
+                            desc: "هل تريد تسجيل الخروج من التطبيق ؟",
+                            btnCancelText: "الغاء",
+                            btnOkText: "موافق",
                             btnCancelColor: ThemeColor.primaryColor,
                             btnOkColor: ThemeColor.editTextColor,
-                            btnOkText: "ok".tr,
                             descTextStyle: AppTheme.customHeadline3.copyWith(
                                 color: ThemeColor.editTextColor,
                                 fontFamily: AppFonts.large,
@@ -83,16 +97,15 @@ class ProfileView extends View1<ProfileController> {
                             },
                           )..show();
                         }),
-                        buildListTile(
-                            "assets/icons/delete.svg", "DeleteAccount".tr,
+                        buildListTile("assets/icons/delete.svg", "حذف الحساب",
                             () async {
                           AwesomeDialog(
                             context: context,
                             animType: AnimType.scale,
                             dialogType: DialogType.error,
-                            desc: 'ARE_YOU_WANT_DELETE_THE_ACCOUNT'.tr,
-                            btnCancelText: "cancel".tr,
-                            btnOkText: "ok".tr,
+                            desc: "هل تريد حذف هذا الحساب ؟",
+                            btnCancelText: "الغاء",
+                            btnOkText: "موافق",
                             btnCancelColor: ThemeColor.grayColor,
                             btnOkColor: ThemeColor.editTextColor,
                             descTextStyle: AppTheme.customHeadline3.copyWith(
@@ -109,7 +122,7 @@ class ProfileView extends View1<ProfileController> {
                       ]))),
             ],
           )),
-        ));
+        );
   }
 
   buildListTile(String icon, String title, var fun) {
@@ -148,7 +161,11 @@ class ProfileView extends View1<ProfileController> {
         children: [
           CircleAvatar(
             radius: 35.0,
-            backgroundImage: AssetImage("assets/Avatar.png"),
+            backgroundImage: NetworkImage(
+                controller.userContorller.user.value.data!.student == null
+                    ? ""
+                    : controller
+                        .userContorller.user.value.data!.student!.photo!),
           ),
           Padding(
             padding: EdgeInsets.only(right: 8.w, left: 8.w),
@@ -156,12 +173,14 @@ class ProfileView extends View1<ProfileController> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Ali Ali',
+                Text(
+                    '${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.displayName!}',
                     style: AppTheme.customHeadline3.copyWith(
                         color: ThemeColor.blackColor,
                         fontFamily: AppFonts.large,
                         fontSize: 16.0)),
-                Text('iamdavid@gmail.com',
+                Text(
+                    '${controller.userContorller.user.value.data!.student==null?"":controller.userContorller.user.value.data!.student!.contactPhone!}',
                     style: AppTheme.customHeadline3.copyWith(
                         color: ThemeColor.grayColor,
                         fontFamily: AppFonts.large,

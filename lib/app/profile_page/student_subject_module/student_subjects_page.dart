@@ -4,11 +4,11 @@ import 'student_subjects_bindings.dart';
 import 'student_subjects_view.dart';
 
 // ignore: must_be_immutable
-class StudentProfilePage extends Page {
-  StudentProfilePage()
+class StudentSubjectPage extends Page {
+  StudentSubjectPage()
       : super(
-          name: Routes.StudentProfileView,
-          view: StudentProfileView(),
-          binding: StudentProfileBinding(),
+          name: Routes.StudentSubjectView,
+          view: StudentSubjectView(),
+          binding: StudentSubjectBinding(),
         );
 }

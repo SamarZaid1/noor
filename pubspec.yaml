@@ -36,7 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get: null
-  get_it: ^7.2.0
+  get_it:
   get_storage: ^2.0.3
   dio: ^4.0.1
   dio_http_cache: ^0.3.0
@@ -51,6 +51,9 @@ dependencies:
   flutter_svg_provider: any
   chips_choice: any
   google_fonts: ^4.0.0
+  pull_to_refresh:
+  data_table_2:
+  expandable: ^5.0.1
 
 
 
@@ -77,7 +80,20 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/font/
     - assets/icons/
+  fonts:
+    - family: Regular
+      fonts:
+        - asset: assets/font/Almarai/Almarai-Regular.ttf
+
+    - family: Medium
+      fonts:
+        - asset: assets/font/Almarai/Almarai-Bold.ttf
+
+    - family: Bold
+      fonts:
+        - asset: assets/font/Almarai/Almarai-Bold.ttf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

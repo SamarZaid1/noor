@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,7 +28,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -34,24 +36,22 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   radius: 30,
                   child: CircleAvatar(
                     radius: 18,
-                    child: SvgPicture.asset(
-                      "assets/book.svg",
-                    ),
+                    child: Image.network(widget.userContorller.user.value.data!.student==null?"":widget.userContorller.user.value.data!.student!.photo!),
                   ),
                 ),
                 SizedBox(
                   width: 10,
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "welcome You",
+                      "${widget.userContorller.user.value.data!.student==null?"":widget.userContorller.user.value.data!.student!.displayName}",
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
-                    Text("Ali Ahmed ",
+                    Text(" السنة الدراسية  ${widget.userContorller.user.value.data!.student==null?"":widget.userContorller.user.value.data!.student!.acadamicYear}" ,
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold))
                   ],
@@ -75,7 +75,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     width: 10,
                   ),
                   Text(
-                    'chanage PassWord',
+                    'تغيير كلمة المرور',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
@@ -88,33 +88,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             SizedBox(
               height: 2.h,
             ),
-            InkWell(
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Profile',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                ],
-              ),
-              onTap: () {
-                Get.toNamed(Routes.ProfilePage);
-              },
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
+
             InkWell(
               child: Row(
                 children: [
@@ -126,7 +100,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     width: 10,
                   ),
                   Text(
-                    'LogOut',
+                    'تسجيل الخروج',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),

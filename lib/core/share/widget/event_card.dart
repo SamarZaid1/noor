@@ -4,10 +4,12 @@ import 'package:noor/core/theme/colors.dart';
 import 'package:noor/core/theme/text_font_family.dart';
 import 'package:sizer/sizer.dart';
 
-class eventCard extends StatelessWidget {
-  const eventCard({
-    Key? key,
-  }) : super(key: key);
+class NewsCard extends StatelessWidget {
+  String title,date;
+  NewsCard({
+  required this.title,
+     required this.date
+  }) ;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class eventCard extends StatelessWidget {
                     SizedBox(
                       height: 4.h,
                     ),
-                    Text("Product Design v1.0",
+                    Text("${title}",
                         style: Theme.of(context)
                             .textTheme
                             .subtitle1!
@@ -54,7 +56,7 @@ class eventCard extends StatelessWidget {
                     ),
                     SizedBox(
                         width: 30.w,
-                        child: Text("Robertson Connie",
+                        child: Text("${date}",
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)

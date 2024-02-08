@@ -9,7 +9,7 @@ class UserContorller extends Contorller {
   final user = UserData.none().obs;
   final isLoadingBalance = false.obs;
   final isGetUser = false.obs;
- // String? get token => user.value.token;
+  // String? get token => user.value.token;
 
   @override
   void onInit() {
@@ -17,19 +17,28 @@ class UserContorller extends Contorller {
 
     super.onInit();
   }
+
   logOut() async {
     await logut();
   }
+
   @override
   Future checkIsLogined() async {
     UserData? c = await UserServiceGetStorage().getUser();
 
     if (c != null) {
+      print("soos");
+      print(c.toJson());
       user.value = c;
-      if (c.name != ""  /*&& c.token != ""*/) {
-        Get.offAllNamed(Routes.HomePage);
+      if (c.data != null) {
+        if (c.data!.student != null) {
+          Get.offAllNamed(Routes.HomePage);
+        } else {
+          Get.offAllNamed(Routes.LoginPage);
+        }
+      } else {
+        Get.offAllNamed(Routes.LoginPage);
       }
-      return Future.value(null);
     } else {
       Get.offAllNamed(Routes.LoginPage);
     }

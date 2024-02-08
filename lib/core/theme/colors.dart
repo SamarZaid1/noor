@@ -7,12 +7,12 @@ class ThemeColor{
   ThemeColor._();
   static const Color  hintColor = Color(0xffF2F2F2);
   static const Color accentColor =  Color(0xffffffff);
-  static const Color  primaryColor =   Color(0xFF2673D1);
+  static const Color  primaryColor =   Color(0xFF26326c);
   static const Color  grayColor =   Color(0xFFB8B8D2);
   static const Color  gColor =   Color(0xFFF4F3FD);
   static const Color  editTextColor =   Color(0xFF2673D1);
   static const Color  cardsColor =   Color(0xFFCEECFE);
-  static const Color  yellwColor =   Color(0xffFF6905);
+  static const Color  orangeColor =   Color(0xfff07f05);
   static const Color  fontColor =   Color(0xff858597);
   static const Color  lightpinkColor =   Color(0xFFEFE0FF);
   static const Color  blackColor =   Color(0xff1F1F39);

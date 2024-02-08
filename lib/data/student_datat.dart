@@ -12,67 +12,9 @@ class Student {
     message = json['message'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['responseCode'] = this.responseCode;
-    data['message'] = this.message;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
-    }
-    return data;
-  }
 }
 
 class Data {
-  int? id;
-  String? name;
-  String? login;
-  String? phone;
-  String? lang;
-  String? pic;
-  String? themeCode;
-  Student? student;
-
-  Data(
-      {this.id,
-      this.name,
-      this.login,
-      this.phone,
-      this.lang,
-      this.pic,
-      this.themeCode,
-      this.student});
-
-  Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-    login = json['login'];
-    phone = json['phone'];
-    lang = json['lang'];
-    pic = json['pic'];
-    themeCode = json['themeCode'];
-    student = json['student'] != null ? new Student.fromJson(json['student']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['login'] = this.login;
-    data['phone'] = this.phone;
-    data['lang'] = this.lang;
-    data['pic'] = this.pic;
-    data['themeCode'] = this.themeCode;
-    if (this.student != null) {
-      data['student'] = this.student!.toJson();
-    }
-    return data;
-  }
-}
-
-class StudentData {
   int? id;
   String? displayName;
   List<Null>? familyConIds;
@@ -81,7 +23,7 @@ class StudentData {
   String? regCode;
   String? studentCode;
   String? contactPhone;
-  bool? contactMobile;
+  String? contactMobile;
   int? rollNo;
   String? photo;
   UserId? year;
@@ -90,26 +32,26 @@ class StudentData {
   String? last;
   String? gender;
   String? dateOfBirth;
-  int? age;
-  bool? maritualStatus;
+  String? age;
+  String? maritualStatus;
   List<Null>? referenceIds;
   List<Null>? previousSchoolIds;
-  bool? doctor;
-  bool? designation;
-  bool? doctorPhone;
-  bool? bloodGroup;
-  int? height;
-  int? weight;
-  bool? eye;
-  bool? ear;
-  bool? noseThroat;
-  bool? respiratory;
-  bool? cardiovascular;
-  bool? neurological;
-  bool? muskoskeletal;
-  bool? dermatological;
-  bool? bloodPressure;
-  bool? remark;
+  String? doctor;
+  String? designation;
+  String? doctorPhone;
+  String? bloodGroup;
+  String? height;
+  String? weight;
+  String? eye;
+  String? ear;
+  String? noseThroat;
+  String? respiratory;
+  String? cardiovascular;
+  String? neurological;
+  String? muskoskeletal;
+  String? dermatological;
+  String? bloodPressure;
+  String? remark;
   UserId? schoolId;
   String? state;
   List<Null>? historyIds;
@@ -122,58 +64,71 @@ class StudentData {
   UserId? divisionId;
   UserId? sectionId;
   UserId? standardId;
-  bool? terminateReason;
+  String? terminateReason;
   bool? active;
-  bool? teachrUserGrp;
-  bool? idNationalType;
-  bool? number;
-  bool? record;
-  bool? paperRecord;
-  bool? releasePlace;
-  bool? releaseDate;
-  bool? documentNumber;
-  bool? graduationPlace;
-  bool? mangerialEducation;
-  bool? educationBranch;
-  bool? graduationYear;
-  bool? finalGrade;
-  bool? iraqiNationalityPlace;
-  bool? nationalityNo;
-  bool? nationalityDate;
-  bool? previousAddress;
-  bool? currentAddress;
-  bool? nearestPoint;
-  bool? eduType;
-  bool? originalDoc;
-  bool? medicalExamination;
-  bool? pic;
-  bool? eduCust;
-  bool? unified;
-  bool? card;
-  bool? nation;
-  bool? residenceCard;
-  bool? tamoin;
-  bool? privateChannel;
-  bool? nocosatNotes;
+  String? teachrUserGrp;
+  String? idNationalType;
+  String? number;
+  String? record;
+  String? paperRecord;
+  String? releasePlace;
+  String? releaseDate;
+  String? documentNumber;
+  String? graduationPlace;
+  String? mangerialEducation;
+  String? educationBranch;
+  String? graduationYear;
+  String? finalGrade;
+  String? iraqiNationalityPlace;
+  String? nationalityNo;
+  String? nationalityDate;
+  String? previousAddress;
+  String? currentAddress;
+  String? nearestPoint;
+  String? eduType;
+  String? docNo2;
+  String? noSend;
+  String? originalDoc;
+  String? medicalExamination;
+  String? pic;
+  String? eduCust;
+  String? unified;
+  String? card;
+  String? nation;
+  String? residenceCard;
+  String? tamoin;
+  String? privateChannel;
+  String? nocosatNotes;
   String? title;
   String? studentResult;
-  bool? failYears;
-  bool? managerOrder;
-  bool? acceptanceChannel;
-  bool? managerOrder1;
-  bool? yearAccept;
-  bool? acceptanceStudent;
+  String? failYears;
+  String? managerOrder;
+  String? acceptanceChannel;
+  String? managerOrder1;
+  String? yearAccept;
+  String? acceptanceStudent;
   String? statusStudent;
-  bool? eduYearOrder;
-  bool? empStudent;
-  bool? birthPlace;
-  bool? fatherPhone;
-  bool? fatherJob;
-  bool? motherPhone;
-  bool? motherJob;
+  String? eduYearOrder;
+  String? empStudent;
+  String? birthPlace;
+  String? fatherPhone;
+  String? fatherJob;
+  String? motherPhone;
+  String? motherJob;
+  String? teachingRelation;
+  String? schoolType;
+  String? schoolGraduationYear;
+  String? noLessons;
+  String? noAdded;
+  String? level;
+  String? title1;
+  String? studentBirth;
+  String? studentResponsible;
+  String? motherJob1;
+  String? studBirth;
   List<Null>? examResultsIds;
 
-  StudentData(
+  Data(
       {this.id,
       this.displayName,
       this.familyConIds,
@@ -245,6 +200,8 @@ class StudentData {
       this.currentAddress,
       this.nearestPoint,
       this.eduType,
+      this.docNo2,
+      this.noSend,
       this.originalDoc,
       this.medicalExamination,
       this.pic,
@@ -272,15 +229,26 @@ class StudentData {
       this.fatherJob,
       this.motherPhone,
       this.motherJob,
+      this.teachingRelation,
+      this.schoolType,
+      this.schoolGraduationYear,
+      this.noLessons,
+      this.noAdded,
+      this.level,
+      this.title1,
+      this.studentBirth,
+      this.studentResponsible,
+      this.motherJob1,
+      this.studBirth,
       this.examResultsIds});
 
-  StudentData.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     displayName = json['display_name'];
     if (json['family_con_ids'] != null) {
       familyConIds = <Null>[];
       json['family_con_ids'].forEach((v) {
-        // familyConIds!.add(new Null.fromJson(v));
+        //  familyConIds!.add(new Null.fromJson(v));
       });
     }
     userId =
@@ -288,7 +256,7 @@ class StudentData {
     pid = json['pid'];
     regCode = json['reg_code'];
     studentCode = json['student_code'];
-    contactPhone = json['contact_phone'];
+    contactPhone = json['contact_phone'].toString();
     contactMobile = json['contact_mobile'];
     rollNo = json['roll_no'];
     photo = json['photo'];
@@ -297,13 +265,13 @@ class StudentData {
     middle = json['middle'];
     last = json['last'];
     gender = json['gender'];
-    dateOfBirth = json['date_of_birth'];
+    dateOfBirth = json['date_of_birth'].toString();
     age = json['age'];
     maritualStatus = json['maritual_status'];
     if (json['reference_ids'] != null) {
       referenceIds = <Null>[];
       json['reference_ids'].forEach((v) {
-        // referenceIds!.add(new Null.fromJson(v));
+        //  referenceIds!.add(new Null.fromJson(v));
       });
     }
     if (json['previous_school_ids'] != null) {
@@ -335,25 +303,25 @@ class StudentData {
     if (json['history_ids'] != null) {
       historyIds = <Null>[];
       json['history_ids'].forEach((v) {
-        // historyIds!.add(new Null.fromJson(v));
+        //  historyIds!.add(new Null.fromJson(v));
       });
     }
     if (json['certificate_ids'] != null) {
       certificateIds = <Null>[];
       json['certificate_ids'].forEach((v) {
-        //certificateIds!.add(new Null.fromJson(v));
+        // certificateIds!.add(new Null.fromJson(v));
       });
     }
     if (json['student_discipline_line'] != null) {
       studentDisciplineLine = <Null>[];
       json['student_discipline_line'].forEach((v) {
-        //studentDisciplineLine!.add(new Null.fromJson(v));
+        // studentDisciplineLine!.add(new Null.fromJson(v));
       });
     }
     if (json['document'] != null) {
       document = <Null>[];
       json['document'].forEach((v) {
-        //document!.add(new Null.fromJson(v));
+        // document!.add(new Null.fromJson(v));
       });
     }
     if (json['description'] != null) {
@@ -365,7 +333,7 @@ class StudentData {
     if (json['award_list'] != null) {
       awardList = <Null>[];
       json['award_list'].forEach((v) {
-        // awardList!.add(new Null.fromJson(v));
+        //awardList!.add(new Null.fromJson(v));
       });
     }
     acadamicYear = json['Acadamic_year'];
@@ -381,14 +349,14 @@ class StudentData {
     terminateReason = json['terminate_reason'];
     active = json['active'];
     teachrUserGrp = json['teachr_user_grp'];
-    idNationalType = json['id_national_type'];
+    idNationalType = json['id_national_type'].toString();
     number = json['number'];
     record = json['record'];
     paperRecord = json['paper_record'];
     releasePlace = json['release_place'];
-    releaseDate = json['release_date'];
+    releaseDate = json['release_date'].toString();
     documentNumber = json['document_number'];
-    graduationPlace = json['graduation_place'];
+    graduationPlace = json['graduation_place'].toString();
     mangerialEducation = json['mangerial_education'];
     educationBranch = json['education_branch'];
     graduationYear = json['graduation_year'];
@@ -399,7 +367,9 @@ class StudentData {
     previousAddress = json['previous_address'];
     currentAddress = json['current_address'];
     nearestPoint = json['nearest_point'];
-    eduType = json['edu_type'];
+    eduType = json['edu_type'].toString();
+    docNo2 = json['doc_no2'];
+    noSend = json['no_send'];
     originalDoc = json['original_doc'];
     medicalExamination = json['medical_examination'];
     pic = json['pic'];
@@ -409,7 +379,7 @@ class StudentData {
     nation = json['nation'];
     residenceCard = json['residence_card'];
     tamoin = json['tamoin'];
-    privateChannel = json['private_channel'];
+    privateChannel = json['private_channel'].toString();
     nocosatNotes = json['nocosat_notes'];
     title = json['title'];
     studentResult = json['student_result'];
@@ -427,154 +397,23 @@ class StudentData {
     fatherJob = json['father_job'];
     motherPhone = json['mother_phone'];
     motherJob = json['mother_job'];
+    teachingRelation = json['teaching_relation'];
+    schoolType = json['school_type'];
+    schoolGraduationYear = json['school_graduation_year'];
+    noLessons = json['no_lessons'];
+    noAdded = json['no_added'];
+    level = json['level'];
+    title1 = json['title_1'];
+    studentBirth = json['student_birth'];
+    studentResponsible = json['student_responsible'];
+    motherJob1 = json['mother_job1'];
+    studBirth = json['stud_birth'];
     if (json['exam_results_ids'] != null) {
       examResultsIds = <Null>[];
-      /*  json['exam_results_ids'].forEach((v) {
-        examResultsIds!.add(new Null.fromJson(v));
-      });*/
+      json['exam_results_ids'].forEach((v) {
+        // examResultsIds!.add(new Null.fromJson(v));
+      });
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['display_name'] = this.displayName;
-    if (this.familyConIds != null) {
-      /* data['family_con_ids'] =
-          this.familyConIds!.map((v) => v.toJson()).toList();*/
-    }
-    if (this.userId != null) {
-      data['user_id'] = this.userId!.toJson();
-    }
-    data['pid'] = this.pid;
-    data['reg_code'] = this.regCode;
-    data['student_code'] = this.studentCode;
-    data['contact_phone'] = this.contactPhone;
-    data['contact_mobile'] = this.contactMobile;
-    data['roll_no'] = this.rollNo;
-    data['photo'] = this.photo;
-    if (this.year != null) {
-      data['year'] = this.year!.toJson();
-    }
-    data['admission_date'] = this.admissionDate;
-    data['middle'] = this.middle;
-    data['last'] = this.last;
-    data['gender'] = this.gender;
-    data['date_of_birth'] = this.dateOfBirth;
-    data['age'] = this.age;
-    data['maritual_status'] = this.maritualStatus;
-    if (this.referenceIds != null) {
-      /* data['reference_ids'] =
-          this.referenceIds!.map((v) => v.toJson()).toList();*/
-    }
-    if (this.previousSchoolIds != null) {
-      /* data['previous_school_ids'] =
-          this.previousSchoolIds!.map((v) => v.toJson()).toList();*/
-    }
-    data['doctor'] = this.doctor;
-    data['designation'] = this.designation;
-    data['doctor_phone'] = this.doctorPhone;
-    data['blood_group'] = this.bloodGroup;
-    data['height'] = this.height;
-    data['weight'] = this.weight;
-    data['eye'] = this.eye;
-    data['ear'] = this.ear;
-    data['nose_throat'] = this.noseThroat;
-    data['respiratory'] = this.respiratory;
-    data['cardiovascular'] = this.cardiovascular;
-    data['neurological'] = this.neurological;
-    data['muskoskeletal'] = this.muskoskeletal;
-    data['dermatological'] = this.dermatological;
-    data['blood_pressure'] = this.bloodPressure;
-    data['remark'] = this.remark;
-    if (this.schoolId != null) {
-      data['school_id'] = this.schoolId!.toJson();
-    }
-    data['state'] = this.state;
-    if (this.historyIds != null) {
-      //   data['history_ids'] = this.historyIds!.map((v) => v.toJson()).toList();
-    }
-    if (this.certificateIds != null) {
-      /*  data['certificate_ids'] =
-          this.certificateIds!.map((v) => v.toJson()).toList();*/
-    }
-    if (this.studentDisciplineLine != null) {
-      /* data['student_discipline_line'] =
-          this.studentDisciplineLine!.map((v) => v.toJson()).toList();*/
-    }
-    if (this.document != null) {
-      // data['document'] = this.document!.map((v) => v.toJson()).toList();
-    }
-    if (this.description != null) {
-      // data['description'] = this.description!.map((v) => v.toJson()).toList();
-    }
-    if (this.awardList != null) {
-      //data['award_list'] = this.awardList!.map((v) => v.toJson()).toList();
-    }
-    data['Acadamic_year'] = this.acadamicYear;
-    if (this.divisionId != null) {
-      data['division_id'] = this.divisionId!.toJson();
-    }
-    if (this.sectionId != null) {
-      data['section_id'] = this.sectionId!.toJson();
-    }
-    if (this.standardId != null) {
-      data['standard_id'] = this.standardId!.toJson();
-    }
-    data['terminate_reason'] = this.terminateReason;
-    data['active'] = this.active;
-    data['teachr_user_grp'] = this.teachrUserGrp;
-    data['id_national_type'] = this.idNationalType;
-    data['number'] = this.number;
-    data['record'] = this.record;
-    data['paper_record'] = this.paperRecord;
-    data['release_place'] = this.releasePlace;
-    data['release_date'] = this.releaseDate;
-    data['document_number'] = this.documentNumber;
-    data['graduation_place'] = this.graduationPlace;
-    data['mangerial_education'] = this.mangerialEducation;
-    data['education_branch'] = this.educationBranch;
-    data['graduation_year'] = this.graduationYear;
-    data['final_grade'] = this.finalGrade;
-    data['iraqi_nationality_place'] = this.iraqiNationalityPlace;
-    data['nationality_no'] = this.nationalityNo;
-    data['nationality_date'] = this.nationalityDate;
-    data['previous_address'] = this.previousAddress;
-    data['current_address'] = this.currentAddress;
-    data['nearest_point'] = this.nearestPoint;
-    data['edu_type'] = this.eduType;
-    data['original_doc'] = this.originalDoc;
-    data['medical_examination'] = this.medicalExamination;
-    data['pic'] = this.pic;
-    data['edu_cust'] = this.eduCust;
-    data['unified'] = this.unified;
-    data['card'] = this.card;
-    data['nation'] = this.nation;
-    data['residence_card'] = this.residenceCard;
-    data['tamoin'] = this.tamoin;
-    data['private_channel'] = this.privateChannel;
-    data['nocosat_notes'] = this.nocosatNotes;
-    data['title'] = this.title;
-    data['student_result'] = this.studentResult;
-    data['fail_years'] = this.failYears;
-    data['manager_order'] = this.managerOrder;
-    data['acceptance_channel'] = this.acceptanceChannel;
-    data['manager_order1'] = this.managerOrder1;
-    data['year_accept'] = this.yearAccept;
-    data['acceptance_student'] = this.acceptanceStudent;
-    data['status_student'] = this.statusStudent;
-    data['edu_year_order'] = this.eduYearOrder;
-    data['emp_student'] = this.empStudent;
-    data['birth_place'] = this.birthPlace;
-    data['father_phone'] = this.fatherPhone;
-    data['father_job'] = this.fatherJob;
-    data['mother_phone'] = this.motherPhone;
-    data['mother_job'] = this.motherJob;
-    if (this.examResultsIds != null) {
-      /* data['exam_results_ids'] =
-          this.examResultsIds!.map((v) => v.toJson()).toList();*/
-    }
-    return data;
   }
 }
 

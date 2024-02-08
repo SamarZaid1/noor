@@ -26,9 +26,6 @@ void main() {
         Locale('en', ''),
         Locale('ar', ''), // arabic, no country code
       ],
-      // Add the locale here
-      //  builder: DevicePreview.appBuilder,
-      //home: Routes.spalshPage(),
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeService().theme, // Add the locale here

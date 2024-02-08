@@ -13,4 +13,7 @@ class RouteApi {
   static String STUDENT_SUBJECTS = 'student/subjects';
   static String STUDENT_EXAM = 'student/exam';
   static String STUDENT_EXAM_RESULTS = 'student/exam_results';
+  static String STUDENT_REMINDER = 'student/reminder';
+  static String STUDENT_NEWS = 'student/news';
+  static String STUDENT_EVENT = 'student/events';
 }

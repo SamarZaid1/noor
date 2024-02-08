@@ -7,10 +7,13 @@ import 'package:noor/app/home_module/CloeseApp.dart';
 import 'package:noor/app/home_module/drawerScreen.dart';
 import 'package:noor/app/home_module/home_controller.dart';
 import 'package:noor/app/message_module/message_view.dart';
+import 'package:noor/app/news_module/news_view.dart';
 import 'package:noor/app/profile_module/profile_view.dart';
 import 'package:noor/core/share/empty_widghet.dart';
 import 'package:noor/core/share/loading_widght.dart';
 import 'package:noor/core/share/widget/event_card.dart';
+import 'package:noor/core/share/widget/event_widght.dart';
+import 'package:noor/core/share/widget/subject_widght.dart';
 import 'package:noor/core/theme/app_theme.dart';
 import 'package:noor/core/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -24,10 +27,13 @@ class HomeView extends View1<HomeController> {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: CloseApp(context).onWillPop,
-        child: Scaffold(
-            body:GetBuilder<HomeController>(
-                builder: (s) => listOfScreen[controller.currentIndex.value]),
-            bottomNavigationBar: bottomNavigationBar(context)));
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Scaffold(
+              body: GetBuilder<HomeController>(
+                  builder: (s) => listOfScreen[controller.currentIndex.value]),
+              bottomNavigationBar: bottomNavigationBar(context)),
+        ));
   }
 
   Widget bottomNavigationBar(BuildContext context) {
@@ -91,7 +97,6 @@ class HomeView extends View1<HomeController> {
                                 color: ThemeColor.profilecolor
                                     .withOpacity(0.25), // border color
                                 shape: BoxShape.circle,
-
                               ),
                               child: Padding(
                                 padding: EdgeInsets.all(8), // border width
@@ -104,10 +109,14 @@ class HomeView extends View1<HomeController> {
                                     ),
                                     child: Container(
                                       padding: EdgeInsets.all(16), //
-                                      child: SvgPicture.asset(
+                                      child: Image.asset(
+                                        "assets/logo.png",
+                                      )
+                                      /*SvgPicture.asset(
                                         "assets/icons/search.svg",
                                         height: size.width * .060,
-                                      ),
+                                      )*/
+                                      ,
                                     ) // inner content
                                     ),
                               ),
@@ -134,164 +143,198 @@ class HomeView extends View1<HomeController> {
   ];
   List<Widget> listOfScreen = [
     HomeBodyView(),
-    EventView(),
-    Center(child: Text(""),),
+    EventView(), // EventView(),
+    Center(
+        child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/logo.png",
+            height: 200.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text(
+                "كلية النور الجامعة واحدة من الجامعات العراقية المتخصصة في مجال العلوم الطبية وتقنياتها حيث تحرص على اداء اسرتها العلمية في مجالات البحث العلمي وتحفزهم على مواكبة احدث الكشوفات العلمية والحرص على الرصانة وذلك عبر تعزيز التعاون البحثي المشترك مع الجامعات والمؤسسات والشركات لتقديم عمل بحثي يسهم في تقديم حلول علمية لتحديات المجتمع.وكذلك تحفز طلبتها على التعلم والالمام بالمواضيع"),
+          ),
+        ],
+      ),
+    )),
     MessageView(),
     ProfileView(),
   ];
-
 }
 
 class HomeBodyView extends View1<HomeController> {
   @override
   Widget build(BuildContext context) {
-    return  SliderDrawer(
-      appBar: AppBar(
-          backgroundColor: ThemeColor.primaryColor,
-          leading: Padding(
-            padding: EdgeInsets.all(4.w),
-            child: SvgPicture.asset(
-              "assets/icons/menu.svg",
-              color: ThemeColor.accentColor,
-            ),
-          )),
-      key: controller.sliderKey,
-      slideDirection: SlideDirection.LEFT_TO_RIGHT,
-      slider: DrawerScreen(controller.userContorller),
-      child:  Stack(
-        children: [
-          HomeListView(context),
-          Positioned(
-            child: Container(
-                height: MediaQuery.of(context).size.height / 6,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  // color: ThemeColor.accentColor,
-                    image: DecorationImage(
-                        image: Svg.Svg(
-                          "assets/icons/bg.svg",
-                        ),
-                        fit: BoxFit.cover)),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 4.w, left: 4.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Hi, Kristin",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .subtitle1!
-                                  .copyWith(
-                                  fontFamily: AppFonts.cairo,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: ThemeColor.accentColor)),
-                          Text("welcome To Noor Collège ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .subtitle1!
-                                  .copyWith(
-                                  fontFamily: AppFonts.cairo,
-                                  fontSize: 9.sp,
-                                  color: ThemeColor.accentColor)),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 8.w, left: 8.w),
-                      child: SvgPicture.asset(
-                        "assets/icons/user.svg",
-                      ),
-                    ),
-                  ],
-                )),
-          ),
-          Positioned(
-              top: 40,
-              child: InkWell(
-                onTap: () async {},
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height / 8,
-                    width: MediaQuery.of(context).size.width - 40,
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(.15),
-                            blurRadius: 30,
-                            offset: Offset(0, 10),
-                          ),
-                        ],
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        color: ThemeColor.gColor),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Todays Lectures",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(
-                                      fontFamily: AppFonts.cairo,
-                                      fontSize: 9.sp,
-                                      color: ThemeColor.fontColor)),
-                              Text("My Lectures",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(
-                                      fontFamily: AppFonts.cairo,
-                                      fontSize: 9.sp,
-                                      color: ThemeColor.primaryColor)),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Row(
-                            children: [
-                              Text("3 lecture",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(
-                                      fontFamily: AppFonts.cairo,
-                                      fontSize: 12.sp,
-                                      color: ThemeColor.blackColor)),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              Text("/ 15 lectures",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(
-                                      fontFamily: AppFonts.cairo,
-                                      fontSize: 9.sp,
-                                      color: ThemeColor.fontColor)),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+    return Directionality(
+        textDirection: TextDirection.rtl,
+        child: SliderDrawer(
+          appBar: AppBar(
+              backgroundColor: ThemeColor.primaryColor,
+              leading: Padding(
+                padding: EdgeInsets.all(4.w),
+                child: SvgPicture.asset(
+                  "assets/icons/menu.svg",
+                  color: ThemeColor.accentColor,
                 ),
-              ))
-        ],
-      ),
-
-    );
+              )),
+          key: controller.sliderKey,
+          slideDirection: SlideDirection.RIGHT_TO_LEFT,
+          slider: DrawerScreen(controller.userContorller),
+          child: Stack(
+            children: [
+              HomeListView(context),
+              Positioned(
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 6,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: ThemeColor.primaryColor,
+                        image: DecorationImage(
+                            image: Svg.Svg(
+                              "assets/icons/bg.svg",
+                            ),
+                            fit: BoxFit.cover)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 4.w, left: 4.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                    "مرحبا بك في  ${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.schoolId!.name} ",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle1!
+                                        .copyWith(
+                                            fontFamily: AppFonts.cairo,
+                                            fontSize: 10.sp,
+                                            color: ThemeColor.accentColor)),
+                                Text(
+                                    "${controller.userContorller.user.value.data!.name}",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle1!
+                                        .copyWith(
+                                            fontFamily: AppFonts.cairo,
+                                            fontSize: 8.sp,
+                                            color: ThemeColor.accentColor)),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(right: 5.w, left: 5.w),
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(controller
+                                          .userContorller
+                                          .user
+                                          .value
+                                          .data!
+                                          .student ==
+                                      null
+                                  ? ""
+                                  : controller.userContorller.user.value.data!
+                                      .student!.photo!),
+                            ) /*SvgPicture.asset(
+                              "assets/icons/user.svg",
+                            )*/
+                            ,
+                          ),
+                        ],
+                      ),
+                    )),
+              ),
+              Positioned(
+                  top: 50,
+                  child: InkWell(
+                    onTap: () async {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height / 8,
+                        width: MediaQuery.of(context).size.width - 40,
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(.15),
+                                blurRadius: 30,
+                                offset: Offset(0, 10),
+                              ),
+                            ],
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            color: ThemeColor.gColor),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("بيانات الطالب",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(
+                                              fontFamily: AppFonts.cairo,
+                                              fontSize: 9.sp,
+                                              color: ThemeColor.fontColor)),
+                                  Text(
+                                      " # ${controller.userContorller.user.value.data!.id}",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(
+                                              fontFamily: AppFonts.cairo,
+                                              fontSize: 10.sp,
+                                              color: ThemeColor.primaryColor)),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 1.h,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                      "  السنة الدراسية  ${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.acadamicYear} ",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(
+                                              fontFamily: AppFonts.cairo,
+                                              fontSize: 11.sp,
+                                              color: ThemeColor.blackColor)),
+                                  Text(
+                                      "${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.divisionId!.name}/"
+                                      " ${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.schoolId!.name}",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(
+                                              fontFamily: AppFonts.cairo,
+                                              fontSize: 7.sp,
+                                              color: ThemeColor.fontColor)),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ))
+            ],
+          ),
+        ));
   }
 
   Padding HomeListView(context) {
@@ -309,251 +352,88 @@ class HomeBodyView extends View1<HomeController> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                          height: 195,
-                          child: ListView.separated(
-                            padding:
-                                const EdgeInsets.only(right: 15.0, left: 15.0),
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 2,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                    color: ThemeColor.cardsColor),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            right: 8.w, left: 8.w),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("Todays News",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .subtitle1!
-                                                    .copyWith(
-                                                        fontFamily:
-                                                            AppFonts.cairo,
-                                                        fontSize: 12.sp,
-                                                        color: ThemeColor
-                                                            .blackColor)),
-                                            SizedBox(
-                                              height: 1.h,
-                                            ),
-                                            SizedBox(
-                                                width: 30.w,
-                                                child: Text(
-                                                    "Celebration of outstanding students during the first semester",
-                                                    maxLines: 3,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .subtitle1!
-                                                        .copyWith(
-                                                            fontFamily:
-                                                                AppFonts.cairo,
-                                                            fontSize: 9.sp,
-                                                            color: ThemeColor
-                                                                .fontColor))),
-                                            SizedBox(
-                                              height: 5.h,
-                                            ),
-                                            SizedBox(
-                                              width: 30.w,
-                                              child: ElevatedButton(
-                                                  style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                ThemeColor
-                                                                    .yellwColor),
-                                                    shape: MaterialStateProperty.all<
-                                                            RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                            side: BorderSide(
-                                                                color: ThemeColor
-                                                                    .yellwColor),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .vertical(
-                                                              bottom: Radius
-                                                                  .circular(10),
-                                                              top: Radius
-                                                                  .circular(10),
-                                                            ))),
-                                                  ),
-                                                  onPressed: () {},
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(3.w),
-                                                    child: Text(
-                                                      'Get Started',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .headline1!
-                                                          .copyWith(
-                                                              fontFamily:
-                                                                  AppFonts
-                                                                      .large,
-                                                              fontSize: 10.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              color:
-                                                                  Colors.white),
-                                                    ),
-                                                  )),
-                                            ),
-                                          ],
-                                        )),
-                                    SvgPicture.asset(
-                                      "assets/icons/gril.svg",
+                          height: 150,
+                          child: controller.eventController.obx(
+                              (state) => state!.data!.isEmpty
+                                  ? Center(child: empty("لايوجد بيانات"))
+                                  : ListView.separated(
+                                      padding: const EdgeInsets.only(
+                                          right: 15.0, left: 15.0),
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: state!.data!.length,
+                                      itemBuilder: (context, index) {
+                                        return EventWidget(
+                                          title:
+                                              state!.data![index].displayName ??
+                                                  "",
+                                          sub_title:
+                                              state!.data![index].description ??
+                                                  "",
+                                          show_size: false,
+                                        );
+                                      },
+                                      separatorBuilder: (context, index) =>
+                                          SizedBox(
+                                        width: 5.0,
+                                      ),
                                     ),
-                                  ],
-                                ),
-                              );
-                            },
-                            separatorBuilder: (context, index) => SizedBox(
-                              width: 5.0,
-                            ),
-                          )),
+                              onLoading: Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                              onEmpty: Center(child: empty("لايوجد بيانات")))),
                     ],
                   ));
             } else if (listindex == 1) {
               return Column(children: <Widget>[
+                buildHomeCard("الكل", "المواد الدراسية", 2, context),
                 Container(
                     margin: EdgeInsets.symmetric(vertical: 5),
-                    child: buildHomeCard(
-                        "All Lectures", "My Lectures", 2, context)),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      right: 15.0, left: 15.0, bottom: 20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        color: ThemeColor.hintColor),
-                    child: Padding(
-                        padding: EdgeInsets.only(right: 8.w, left: 8.w),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Packaging Design",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .subtitle1!
-                                            .copyWith(
-                                                fontFamily: AppFonts.cairo,
-                                                fontSize: 10.sp,
-                                                color: ThemeColor.blackColor)),
-                                    Row(
-                                      children: [
-                                        Text("40 ",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .subtitle1!
-                                                .copyWith(
-                                                    fontFamily: AppFonts.cairo,
-                                                    fontSize: 9.sp,
-                                                    color:
-                                                        ThemeColor.blackColor)),
-                                        SizedBox(
-                                          width: 5.w,
-                                        ),
-                                        Text("/ 48 lectures",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .subtitle1!
-                                                .copyWith(
-                                                    fontFamily: AppFonts.cairo,
-                                                    fontSize: 9.sp,
-                                                    color:
-                                                        ThemeColor.fontColor)),
-                                      ],
-                                    )
-                                  ],
+                    child: controller.subjectController.obx(
+                        (state) => state!.data!.isEmpty
+                            ? Center(child: empty("لايوجد بيانات"))
+                            : Padding(
+                                padding: const EdgeInsets.only(
+                                    right: 15.0, left: 15.0, bottom: 20.0),
+                                child: Container(
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      color: ThemeColor.hintColor),
+                                  child: ListView.builder(
+                                      physics: ClampingScrollPhysics(),
+                                      primary: false,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: state!.data!.length!,
+                                      itemBuilder: (context, index) {
+                                        return Padding(
+                                            padding: EdgeInsets.only(
+                                                right: 8.w,
+                                                left: 8.w,
+                                                top: 2.h),
+                                            child: SubjectWidget(
+                                              subject_name: state!.data![index]
+                                                      .displayName ??
+                                                  "",
+                                              maximum_marks: state!.data![index]
+                                                      .maximumMarks ??
+                                                  0,
+                                              minimum_marks: state!.data![index]
+                                                      .minimumMarks ??
+                                                  0,
+                                            ));
+                                      }),
                                 ),
-                                SizedBox(
-                                  height: 1.h,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Packaging Design",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .subtitle1!
-                                            .copyWith(
-                                                fontFamily: AppFonts.cairo,
-                                                fontSize: 10.sp,
-                                                color: ThemeColor.blackColor)),
-                                    Row(
-                                      children: [
-                                        Text("40 ",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .subtitle1!
-                                                .copyWith(
-                                                    fontFamily: AppFonts.cairo,
-                                                    fontSize: 9.sp,
-                                                    color:
-                                                        ThemeColor.blackColor)),
-                                        SizedBox(
-                                          width: 5.w,
-                                        ),
-                                        Text("/ 48 lectures",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .subtitle1!
-                                                .copyWith(
-                                                    fontFamily: AppFonts.cairo,
-                                                    fontSize: 9.sp,
-                                                    color:
-                                                        ThemeColor.fontColor)),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 1.h,
-                                ),
-                              ],
-                            )
-                          ],
-                        )),
-                  ),
-                )
+                              ),
+                        onLoading: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        onEmpty: Center(child: empty("لايوجد بيانات")))),
               ]);
             } else if (listindex == 2) {
               return Column(children: <Widget>[
-                Padding(
+                /* Padding(
                     padding: EdgeInsets.only(right: 15.0, left: 15.0),
                     child: Container(
                       decoration: BoxDecoration(
@@ -606,23 +486,33 @@ class HomeBodyView extends View1<HomeController> {
                           ),
                         ],
                       ),
-                    ))
+                    ))*/
               ]);
             } else if (listindex == 3) {
               return Column(children: <Widget>[
                 Container(
                     margin: EdgeInsets.symmetric(vertical: 5),
-                    child: buildHomeCard("View All", "Last News", 3, context)),
-                ListView.builder(
-                  physics: ClampingScrollPhysics(),
-                  primary: false,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return eventCard();
-                  },
-                )
+                    child: buildHomeCard("الكل", "اخر الاخبار", 3, context)),
+                controller.newsController.obx(
+                    (state) => state!.data!.isEmpty
+                        ? Center(child: empty("لايوجد بيانات"))
+                        : ListView.builder(
+                            physics: ClampingScrollPhysics(),
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: state!.data!.length!,
+                            itemBuilder: (context, index) {
+                              return NewsCard(
+                                title: state!.data![index].displayName ?? "",
+                                date: state!.data![index].date ?? "",
+                              );
+                            },
+                          ),
+                    onLoading: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    onEmpty: Center(child: empty("لايوجد بيانات")))
               ]);
             } else {
               return Container();
@@ -666,5 +556,3 @@ class HomeBodyView extends View1<HomeController> {
     );
   }
 }
-
-

@@ -1,53 +1,50 @@
 import 'package:noor/core/contracts/controller.dart';
+import 'package:noor/data/student_datat.dart';
+import 'package:noor/services/student_api.dart';
 import 'package:noor/services/user_contorller.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class StudentProfileController extends Contorller {
-  RxString search = "".obs;
-  final UserContorller userContorller = Get.put(UserContorller());
- /* RefreshController refreshController =
-  new RefreshController(initialRefresh: false);
-*/
+class StudentProfileController extends Contorller with StateMixin<Student> {
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    //await fetchBooksMap();
+    await fetchStudent();
   }
+
+  @override
+  void dispose() {
+    // tabController!.dispose();
+    super.dispose();
+  }
+
+  final UserContorller userContorller = Get.put(UserContorller());
+  Student student = Student();
+  RefreshController refreshController =
+      new RefreshController(initialRefresh: false);
 
   void onRefresh() async {
-   // await fetchBooksMap();
-   // refreshController.refreshCompleted();
+    await fetchStudent();
+    refreshController.refreshCompleted();
   }
 
- /* Future fetchBooksMap() async {
-    try {
-      change(null, status: RxStatus.loading());
-      var ruslte = await BooksApi().getBooks(userContorller.user.value.id!);
-      if (ruslte == null) {
-        change(booksList, status: RxStatus.empty());
+  Future fetchStudent() async {
+    //  try {
+    change(null, status: RxStatus.loading());
+    var ruslte = await StudentApi().getStudent("", userContorller.user.value);
+    print("ruslte$ruslte");
+    if (ruslte == null) {
+      change(student, status: RxStatus.empty());
+    } else {
+      student = Student.fromJson(ruslte);
+      if (student.isNull) {
+        change(student, status: RxStatus.empty());
       } else {
-        //booksList.clear();
-        //ruslte.forEach((v) {
-        booksList = BooksMap.fromJson(ruslte);
-
-        // });
-        if (booksList == true) {
-          change(booksList, status: RxStatus.empty());
-        } else {
-          booksList.books!
-              .add(Books(bookId: 0, title: "", readingStatusId: 1));
-          change(booksList, status: RxStatus.success());
-        }
+        change(student, status: RxStatus.success());
       }
-    } catch (e) {
-      throw e;
     }
   }
-*/
-  logOut() async {
-    await userContorller.logut();
-  }
-
-
-
+  /* } catch (e) {
+      throw e;
+    }*/
 }

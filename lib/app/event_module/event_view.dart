@@ -1,9 +1,12 @@
 import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:noor/app/event_module/event_controller.dart';
+import 'package:noor/core/share/empty_widghet.dart';
 import 'package:noor/core/share/searchWidget.dart';
 import 'package:noor/core/share/widget/event_card.dart';
+import 'package:noor/core/share/widget/event_widght.dart';
 import 'package:noor/core/theme/app_theme.dart';
 import 'package:noor/core/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +15,8 @@ import 'package:noor/core/theme/text_font_family.dart';
 import 'package:sizer/sizer.dart';
 import 'package:noor/core/contracts/view.dart';
 
-
 class EventView extends View1<EventController> {
+  //final EventController controller = Get.put(EventController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,7 @@ class EventView extends View1<EventController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("Events",
+                Text("الفعاليات",
                     style: Theme.of(context).textTheme.subtitle1!.copyWith(
                         fontFamily: AppFonts.cairo,
                         fontSize: 14.sp,
@@ -49,8 +52,33 @@ class EventView extends View1<EventController> {
               onChanga: (v) {
                 //controller.search.value = v;
               },
-              title: "Find Events"),
-          Padding(
+              title: "البحث عن فعلية"),
+          controller.obx(
+              (state) => state!.data!.isEmpty
+                  ? Center(child: empty("لايوجد بيانات"))
+                  : ListView.builder(
+                      physics: ClampingScrollPhysics(),
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: state!.data!.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                              right: 15.0, left: 15.0, bottom: 15.0),
+                          child: EventWidget(
+                            title: state!.data![index].displayName??"",
+                            sub_title: state!.data![index].description??"",
+                            show_size: true,
+                          ),
+                        );
+                      },
+                    ),
+              onLoading: Center(
+                child: CircularProgressIndicator(),
+              ),
+              onEmpty: Center(child: empty("لايوجد بيانات")))
+          /*    Padding(
             padding: EdgeInsets.only(top: 4.w, right: 4.w, left: 4.w),
             child: Text("Choice events type",
                 style: Theme.of(context).textTheme.subtitle1!.copyWith(
@@ -99,7 +127,7 @@ class EventView extends View1<EventController> {
             itemBuilder: (context, index) {
               return eventCard();
             },
-          )
+          )*/
         ],
       ),
     );

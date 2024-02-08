@@ -16,9 +16,13 @@ class SplashView extends View1<SpalshController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset(
+            /*SvgPicture.asset(
               "assets/icons/logo.svg",
-            ),
+            ),*/
+            Image.asset(
+              "assets/logo.png",
+              height: 200.0,
+            )
           ],
         ),
       ),
