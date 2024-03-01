@@ -21,20 +21,18 @@ class ProfileView extends View1<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-        textDirection: TextDirection.rtl,
-        child:  Scaffold(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
           appBar: AppBar(
             centerTitle: false,
-            title:   Text("الملف الشخصي",
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(
+            title: Text("الملف الشخصي",
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(
                     fontFamily: AppFonts.cairo,
                     fontSize: 12.sp,
                     color: ThemeColor.accentColor)),
-            backgroundColor: ThemeColor.primaryColor,),
-              body: ListView(
+            backgroundColor: ThemeColor.primaryColor,
+          ),
+          body: ListView(
             children: [
               header(),
               //Divider(),
@@ -122,7 +120,7 @@ class ProfileView extends View1<ProfileController> {
                       ]))),
             ],
           )),
-        );
+    );
   }
 
   buildListTile(String icon, String title, var fun) {
@@ -180,7 +178,7 @@ class ProfileView extends View1<ProfileController> {
                         fontFamily: AppFonts.large,
                         fontSize: 16.0)),
                 Text(
-                    '${controller.userContorller.user.value.data!.student==null?"":controller.userContorller.user.value.data!.student!.contactPhone!}',
+                    '${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.contactPhone!}',
                     style: AppTheme.customHeadline3.copyWith(
                         color: ThemeColor.grayColor,
                         fontFamily: AppFonts.large,
