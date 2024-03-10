@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:noor/app/auth/login_module/login_page.dart';
+import 'package:noor/app/auth/newPassword_module/newPassword_page.dart';
 import 'package:noor/app/event_module/event_page.dart';
 import 'package:noor/app/home_module/home_page.dart';
 import 'package:noor/app/news_module/news_page.dart';
@@ -16,6 +17,7 @@ class AppPages {
   static List<GetPage> pages = [
     SplashPage(),
     LoginPage(),
+    NewPasswordPage(),
     HomePage(),
     EventPage(),
     ProfilePage(),

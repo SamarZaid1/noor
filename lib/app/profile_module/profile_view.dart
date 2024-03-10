@@ -66,6 +66,11 @@ class ProfileView extends View1<ProfileController> {
                             () {
                           Get.toNamed(Routes.StudentFeesView);
                         }),
+                        buildListTile(
+                            "assets/icons/circulars.svg", "تغيير كلمة مرور جديدة",
+                                () {
+                              Get.toNamed(Routes.NewPasswordPage);
+                            }),
                         /*  buildListTile("assets/icons/lang.svg", "اللغة",
                             () {
                         //  LangView().buildLanguageDialog(context);

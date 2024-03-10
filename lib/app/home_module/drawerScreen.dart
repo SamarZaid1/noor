@@ -63,7 +63,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ),
             InkWell(
               onTap: () {
-                Get.toNamed(Routes.NewPassPage);
+                Get.toNamed(Routes.NewPasswordPage);
               },
               child: Row(
                 children: [

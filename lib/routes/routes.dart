@@ -1,8 +1,8 @@
 abstract class Routes {
   static String spalshPage = '/spaslhPage';
   static String LoginPage = '/LoginPage';
+  static String NewPasswordPage = '/NewPasswordPage';
   static String ForgetPage = '/ForgetPage';
-  static String NewPassPage = '/NewPassPage';
   static String RegistrationPage = '/RegistrationPage';
   static String HomePage = '/HomePage';
   static String PdfPage = '/PdfPage';

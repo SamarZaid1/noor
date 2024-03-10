@@ -7,6 +7,7 @@ class RouteApi {
   static String API_VERISON = '';
   static String DB = 'alnoor';
   static String AUTH_LOGIN = 'user/login';
+  static String CHANGE_PASSWORD = 'student/changePassword';
   static String STUDENT = 'student';
   static String STUDENT_TIMETABLE = 'student/timetable';
   static String STUDENT_FEES = 'student/fees';
