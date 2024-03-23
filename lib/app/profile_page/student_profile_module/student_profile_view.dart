@@ -151,6 +151,223 @@ class StudentProfileView extends View1<StudentProfileController> {
                                                   fontFamily: AppFonts.large,
                                                   fontWeight: FontWeight.w600,
                                                   fontSize: 12.sp)),
+                                      Row(
+                                        children: [
+                                          Text("حالة الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.state}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("سنة تخرج الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text(
+                                              "${state!.data!.schoolGraduationYear}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("عمر الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.age}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("تاريخ الميلاد الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.dateOfBirth}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(" سنة الدرسية الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.acadamicYear}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("عنوان الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.currentAddress}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("جنس الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.gender}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("رقم ام الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.motherPhone}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("رقم اب الطالب",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                          Text("${state!.data!.fatherPhone}",
+                                              style: AppTheme.customHeadline3
+                                                  .copyWith(
+                                                      color: ThemeColor
+                                                          .primaryColor,
+                                                      fontFamily:
+                                                          AppFonts.large,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12.sp)),
+                                        ],
+                                      )
                                     ],
                                   )))),
                     ),
