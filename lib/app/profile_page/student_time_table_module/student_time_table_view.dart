@@ -30,7 +30,7 @@ class StudentTimeTableView extends View1<StudentTimeTableController> {
               ),
               centerTitle: false,
               backgroundColor: ThemeColor.primaryColor,
-              title: Text("اختبارتي",
+              title: Text("جدول المحاضرات",
                   style: AppTheme.customHeadline3.copyWith(
                       color: ThemeColor.accentColor,
                       fontFamily: AppFonts.large,
