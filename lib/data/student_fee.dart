@@ -57,7 +57,7 @@ class Data {
   String? remainInstallment;
   String? installmentAmount;
   FeesStructureId? accountId;
-  double? paidDone;
+  String? paidDone;
   List<Installments>? installments;
 
   Data(

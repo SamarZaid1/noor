@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:dio/dio.dart' as httpDio;
 import 'package:get_storage/get_storage.dart';
 import 'package:noor/core/locator.dart';
@@ -17,18 +16,17 @@ class StudentNewsApi {
   var dio = Dio();
   Future getStudentNews(String order, UserData user) async {
     try {
+      print("{'email':'${await GetStorage().read('email')}','password':'${await GetStorage().read('password')}'}");
       var response = await dio.get(
         "${RouteApi.HOST}${RouteApi.STUDENT_NEWS}?order=date desc",
-        options: buildCacheOptions(Duration(days: 7),
-            forceRefresh: true,
-            options: Options(headers: {
+        options: Options(headers: {
               "Authorization":
                   "Basic Zzd0RkNNTHBTN3hid1FmMHRkVUxhUGdHck5zaExweEs6",
               "Accept": "*/*",
               "db_name": "${RouteApi.DB}",
               "Login":
                   "{'email':'${await GetStorage().read('email')}','password':'${await GetStorage().read('password')}'}"
-            })),
+            }),
       );
       if (response.data['success'] == false) {
        /* showSnakBarErorr(

@@ -7,7 +7,8 @@ import 'package:sizer/sizer.dart';
 class EventWidget extends StatelessWidget {
   String title, sub_title;
   bool show_size;
-  EventWidget({required this.title, required this.sub_title,required this.show_size});
+  EventWidget(
+      {required this.title, required this.sub_title, required this.show_size});
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +20,26 @@ class EventWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-              padding: EdgeInsets.only(right: 8.w, left: 8.w),
+              padding: EdgeInsets.only(right: 4.w, left: 4.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
                   SizedBox(
-                    height: 10.0,
-                  ),
-                  Text("${title}",
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                          fontFamily: AppFonts.cairo,
-                          fontSize: 12.sp,
-                          color: ThemeColor.blackColor)),
+                      width: 50.w,
+                      height: 3.h,
+                      child: Text("${title}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1!
+                              .copyWith(
+                                  fontFamily: AppFonts.cairo,
+                                  fontSize: 8.sp,
+                                  color: ThemeColor.blackColor))),
                   SizedBox(
-                      width: 20.w,
+                      width: 50.w,
+                      height: 5.h,
                       child: Text("${sub_title}",
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
@@ -45,10 +51,11 @@ class EventWidget extends StatelessWidget {
                                   fontSize: 9.sp,
                                   color: ThemeColor.fontColor))),
                   SizedBox(
-                    height: 0.h,
+                    height: 1.h,
                   ),
                   SizedBox(
                     width: 20.w,
+                    height: 4.h,
                     child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
@@ -65,7 +72,7 @@ class EventWidget extends StatelessWidget {
                         ),
                         onPressed: () {},
                         child: Padding(
-                          padding: EdgeInsets.all(3.w),
+                          padding: EdgeInsets.all(1.w),
                           child: Text(
                             'لنبدا',
                             style: Theme.of(context)
@@ -79,11 +86,13 @@ class EventWidget extends StatelessWidget {
                           ),
                         )),
                   ),
-                 show_size? SizedBox(
-                    height: 2.h,
-                  ):SizedBox(
-                   height: 5.0,
-                 ),
+                  show_size
+                      ? SizedBox(
+                          height: 2.h,
+                        )
+                      : SizedBox(
+                          height: 5.0,
+                        ),
                 ],
               )),
           SvgPicture.asset(

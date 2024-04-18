@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:dio/dio.dart' as httpDio;
 import 'package:get_storage/get_storage.dart';
 import 'package:noor/core/locator.dart';
@@ -20,16 +18,16 @@ class StudentApi {
     try {
       var response = await dio.get(
         "${RouteApi.HOST}${RouteApi.STUDENT}?order=date desc",
-        options: buildCacheOptions(Duration(days: 7),
-            forceRefresh: true,
-            options: Options(headers: {
+        options:  Options(headers: {
               "Authorization":
-              "Basic Zzd0RkNNTHBTN3hid1FmMHRkVUxhUGdHck5zaExweEs6",
+                  "Basic Zzd0RkNNTHBTN3hid1FmMHRkVUxhUGdHck5zaExweEs6",
               "Accept": "*/*",
               "db_name": "${RouteApi.DB}",
-              "Login": "{'email':'${await GetStorage().read('email')}','password':'${await GetStorage().read('password')}'}"
-            })),
+              "Login":
+                  "{'email':'${await GetStorage().read('email')}','password':'${await GetStorage().read('password')}'}"
+            }),
       );
+      print("samar${response.data}");
       if (response.data['success'] == false) {
         showSnakBarErorr(
             msg: "${response.data['messages']}", color: ThemeColor.errorColor);

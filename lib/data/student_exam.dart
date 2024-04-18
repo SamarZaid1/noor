@@ -43,7 +43,7 @@ class Data {
   String? weightage;
   StandardId? academicYear;
   List<ExamAspects>? examAspects;
-  String? totalMax;
+  double? totalMax;
 
   Data(
       {this.id,

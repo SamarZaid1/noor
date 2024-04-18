@@ -109,21 +109,26 @@ class MessageView extends View1<MessageController> {
                                           ),
                                         ),
                                       ),
-                                      title: Row(
+                                      title: Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                              "${state!.data![index].displayName}",
-                                              style: AppTheme.customHeadline3
-                                                  .copyWith(
-                                                      color:
-                                                          ThemeColor.grayColor,
-                                                      fontFamily:
-                                                          AppFonts.large,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 12.sp)),
+                                          SizedBox(
+                                              width: 50.w,
+                                              child: Text(
+                                                  "${state!.data![index].displayName}",
+                                                  style: AppTheme
+                                                      .customHeadline3
+                                                      .copyWith(
+                                                          color: ThemeColor
+                                                              .grayColor,
+                                                          fontFamily:
+                                                              AppFonts.large,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 10.sp))),
                                           Text("${state!.data![index].date}",
                                               style: AppTheme.customHeadline3
                                                   .copyWith(
@@ -161,27 +166,32 @@ class MessageView extends View1<MessageController> {
                                               CircleAvatar(
                                                 radius: 10.0,
                                                 backgroundImage: NetworkImage(
-                                                    controller
+                                                    /*controller
                                                         .userContorller
                                                         .user
                                                         .value
                                                         .data!
                                                         .student!
-                                                        .photo!),
+                                                        .photo??*/
+                                                    ""),
                                               ),
                                             ],
                                           ),
-                                          Text(
-                                              "${state!.data![index].description}",
-                                              style: AppTheme.customSubtitle1
-                                                  .copyWith(
-                                                      color:
-                                                          ThemeColor.grayColor,
-                                                      fontFamily:
-                                                          AppFonts.large,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 8.sp))
+                                          SizedBox(
+                                            width: 30.w,
+                                            height: 4.h,
+                                            child: Text(
+                                                "${state!.data![index].description}",
+                                                style: AppTheme.customSubtitle1
+                                                    .copyWith(
+                                                        color: ThemeColor
+                                                            .grayColor,
+                                                        fontFamily:
+                                                            AppFonts.large,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontSize: 8.sp)),
+                                          )
                                         ],
                                       ),
                                     ),

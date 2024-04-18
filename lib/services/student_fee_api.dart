@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:dio/dio.dart' as httpDio;
 import 'package:get_storage/get_storage.dart';
 import 'package:noor/core/locator.dart';
@@ -17,6 +16,7 @@ class StudentFeeApi {
   var dio = Dio();
   Future getStudentFee(String order, UserData user) async {
     try {
+      print("{'email':'${await GetStorage().read('email')}','password':'${await GetStorage().read('password')}'}");
       var response = await dio.get(
         "${RouteApi.HOST}${RouteApi.STUDENT_FEES}",
         options: Options(headers: {

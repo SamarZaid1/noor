@@ -149,6 +149,7 @@ class HomeView extends View1<HomeController> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
+          SizedBox(height: 4.h,),
           Image.asset(
             "assets/logo.png",
             height: 200.0,
@@ -156,7 +157,7 @@ class HomeView extends View1<HomeController> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Text(
-                "كلية النور الجامعة واحدة من الجامعات العراقية المتخصصة في مجال العلوم الطبية وتقنياتها حيث تحرص على اداء اسرتها العلمية في مجالات البحث العلمي وتحفزهم على مواكبة احدث الكشوفات العلمية والحرص على الرصانة وذلك عبر تعزيز التعاون البحثي المشترك مع الجامعات والمؤسسات والشركات لتقديم عمل بحثي يسهم في تقديم حلول علمية لتحديات المجتمع.وكذلك تحفز طلبتها على التعلم والالمام بالمواضيع"),
+                "جامعة النور الجامعة واحدة من الجامعات العراقية المتخصصة في مجال العلوم الطبية وتقنياتها حيث تحرص على اداء اسرتها العلمية في مجالات البحث العلمي وتحفزهم على مواكبة احدث الكشوفات العلمية والحرص على الرصانة وذلك عبر تعزيز التعاون البحثي المشترك مع الجامعات والمؤسسات والشركات لتقديم عمل بحثي يسهم في تقديم حلول علمية لتحديات المجتمع.وكذلك تحفز طلبتها على التعلم والالمام بالمواضيع"),
           ),
         ],
       ),
@@ -173,7 +174,7 @@ class HomeBodyView extends View1<HomeController> {
         textDirection: TextDirection.rtl,
         child: SliderDrawer(
           appBar: AppBar(
-              backgroundColor: ThemeColor.primaryColor,
+              backgroundColor: ThemeColor.editTextColor,
               leading: Padding(
                 padding: EdgeInsets.all(4.w),
                 child: SvgPicture.asset(
@@ -192,7 +193,7 @@ class HomeBodyView extends View1<HomeController> {
                     height: MediaQuery.of(context).size.height / 6,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: ThemeColor.primaryColor,
+                        color: ThemeColor.editTextColor,
                         image: DecorationImage(
                             image: Svg.Svg(
                               "assets/icons/bg.svg",
@@ -303,7 +304,7 @@ class HomeBodyView extends View1<HomeController> {
                               SizedBox(
                                 height: 1.h,
                               ),
-                              Column(
+                           /*   Column(
                                 children: [
                                   Text(
                                       "  السنة الدراسية  ${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.acadamicYear} ",
@@ -325,7 +326,7 @@ class HomeBodyView extends View1<HomeController> {
                                               fontSize: 7.sp,
                                               color: ThemeColor.fontColor)),
                                 ],
-                              )
+                              )*/
                             ],
                           ),
                         ),
@@ -365,10 +366,10 @@ class HomeBodyView extends View1<HomeController> {
                                         return EventWidget(
                                           title:
                                               state!.data![index].displayName ??
-                                                  "",
+                                                  "null",
                                           sub_title:
                                               state!.data![index].description ??
-                                                  "",
+                                                  "null",
                                           show_size: false,
                                         );
                                       },

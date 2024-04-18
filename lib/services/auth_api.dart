@@ -1,7 +1,5 @@
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart' as httpDio;
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:noor/core/share/erorr.dart';
 import 'package:noor/core/theme/colors.dart';
@@ -24,7 +22,7 @@ class AuthApi {
           "Login": "{'email':'${userName}','password':'${password}'}"
         }),
       );
-      print("samar${response.data}");
+      print("samarLogin${response.data}");
       if (response.statusCode == 200) {
         return response.data;
       } else {

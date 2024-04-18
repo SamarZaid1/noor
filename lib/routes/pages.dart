@@ -8,6 +8,7 @@ import 'package:noor/app/profile_module/profile_page.dart';
 import 'package:noor/app/profile_page/student_exam_module/student_exam_page.dart';
 import 'package:noor/app/profile_page/student_profile_module/student_profile_page.dart';
 import 'package:noor/app/profile_page/student_subject_module/student_subjects_page.dart';
+import 'package:noor/app/profile_page/student_time_table_module/student_time_table_page.dart';
 import 'package:noor/app/splash_module/splash_page.dart';
 
 import '../app/profile_page/student_Fees_module/student_fees_page.dart';
@@ -27,5 +28,6 @@ class AppPages {
     StudentExamPage(),
     StudentExamResultPage(),
     StudentFeesPage(),
+    StudentTimeTablePage(),
   ];
 }

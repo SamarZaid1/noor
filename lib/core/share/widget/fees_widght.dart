@@ -50,18 +50,39 @@ class FeesCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Text("    ${data.displayName}",
-                              style: AppTheme.customHeadline3.copyWith(
-                                  color: ThemeColor.primaryColor,
-                                  fontFamily: AppFonts.large,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 10.sp)),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("    ${data.displayName}",
+                                  style: AppTheme.customHeadline3.copyWith(
+                                      color: ThemeColor.primaryColor,
+                                      fontFamily: AppFonts.large,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 10.sp)),
+                              Text("    ${data.sequence}",
+                                  style: AppTheme.customHeadline3.copyWith(
+                                      color: ThemeColor.primaryColor,
+                                      fontFamily: AppFonts.large,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 10.sp)),
+                            ],
+                          )
                         ],
                       ),
                       SizedBox(
                         height: 10.0,
                       ),
                       Text("الاجمالي      ${data.total} ${data.currencySymbol}",
+                          style: AppTheme.customHeadline3.copyWith(
+                              color: ThemeColor.primaryColor,
+                              fontFamily: AppFonts.large,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 10.sp)),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                          "الاجمالي المتبقي      ${data.dueAmount} ${data.currencySymbol}",
                           style: AppTheme.customHeadline3.copyWith(
                               color: ThemeColor.primaryColor,
                               fontFamily: AppFonts.large,
@@ -80,7 +101,7 @@ class FeesCard extends StatelessWidget {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text("${data.numWordAmount}",
+                      Text("نظام تقسيط ؟      ${data.useInstallment} ",
                           style: AppTheme.customHeadline3.copyWith(
                               color: ThemeColor.grayColor,
                               fontFamily: AppFonts.large,
@@ -145,12 +166,12 @@ class FeesCard extends StatelessWidget {
                                           fontFamily: AppFonts.large,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 10.sp)),
-                                  Text("المبلغ المدفوع ${c.paidDone}",
+                                  /*Text("المبلغ المدفوع ${c.paidDone}",
                                       style: AppTheme.customHeadline3.copyWith(
                                           color: ThemeColor.grayColor,
                                           fontFamily: AppFonts.large,
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 10.sp)),
+                                          fontSize: 10.sp)),*/
                                 ],
                               ))),
                   ],

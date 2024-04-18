@@ -51,7 +51,7 @@ class NewsView extends View1<NewsController> {
                               CircleAvatar(
                                 radius: 30.0,
                                 backgroundImage: NetworkImage(
-                                    state!.data![index].image??""),
+                                    state!.data![index].image ?? ""),
                               ),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -63,11 +63,19 @@ class NewsView extends View1<NewsController> {
                                           .subtitle1!
                                           .copyWith(
                                               fontFamily: AppFonts.cairo,
-                                              fontSize: 12.sp,
+                                              fontSize: 8.sp,
                                               color: ThemeColor.blackColor)),
                                   SizedBox(
                                     height: 1.h,
                                   ),
+                                  Text("${state!.data![index].date}",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(
+                                              fontFamily: AppFonts.cairo,
+                                              fontSize: 8.sp,
+                                              color: ThemeColor.grayColor)),
                                   SizedBox(
                                       width: 30.w,
                                       child: Text(
@@ -84,17 +92,6 @@ class NewsView extends View1<NewsController> {
                                                       ThemeColor.fontColor))),
                                 ],
                               ),
-                              SizedBox(
-                                height: 2.h,
-                              ),
-                              Text("${state!.data![index].date}",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(
-                                          fontFamily: AppFonts.cairo,
-                                          fontSize: 8.sp,
-                                          color: ThemeColor.grayColor)),
                               SizedBox(
                                 height: 2.h,
                               ),

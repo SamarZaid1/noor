@@ -1,3 +1,4 @@
+/*
 import 'dart:io';
 import 'package:noor/core/extention/string_route_mange_extension.dart';
 import 'package:noor/core/utils/helper/handler_helper.dart';
@@ -30,9 +31,11 @@ setup() async {
       if (status == 401) {
         //userContorller.logut();
         Get.offAllNamed(Routes.LoginPage)!;
-      /*  controller.login(
+      */
+/*  controller.login(
             userContorller.user.value.p,controller.passwordTextController.value.text);
-*/
+*//*
+
         throw "plz login agin";
       }
       return status > 0;
@@ -76,3 +79,4 @@ DioCacheManager getCacheManager() {
   }
   return _manager!;
 }
+*/

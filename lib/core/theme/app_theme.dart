@@ -64,8 +64,8 @@ class AppTheme {
     buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          primary: ThemeColor.grayColor,
-          backgroundColor: ThemeColor.greyColor.withAlpha(30),
+          //primary: ThemeColor.grayColor,
+          backgroundColor: ThemeColor.greyColor,
           textStyle: TextStyle(
             fontSize: 12,
             fontFamily: AppFonts.cairo,
@@ -98,7 +98,7 @@ class AppTheme {
     fontFamily: appFontFamily,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     unselectedWidgetColor: ThemeColor.primaryColor,
-    selectedRowColor: ThemeColor.accentColor,
+    //selectedRowColor: ThemeColor.accentColor,
     //
    /* colorScheme: const ColorScheme.light().copyWith(
       primary: ThemeColor.primaryColor.withAlpha(220),
@@ -216,7 +216,7 @@ class AppTheme {
   static customOutlinedButton() {
     return OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        primary: ThemeColor.primaryColor,
+        backgroundColor: ThemeColor.primaryColor,
         side: const BorderSide(
           color: ThemeColor.primaryColor,
           style: BorderStyle.solid,
@@ -229,7 +229,7 @@ class AppTheme {
 
   static customTextButtonTheme() {
     return TextButton.styleFrom(
-        primary: ThemeColor.buttonTextColor,
+        backgroundColor: ThemeColor.buttonTextColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),

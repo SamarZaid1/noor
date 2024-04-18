@@ -31,15 +31,18 @@ class UserContorller extends Contorller {
       print(c.toJson());
       user.value = c;
       if (c.data != null) {
-        if (c.data!.student != null) {
+        if (c.data!.name != null) {
           Get.offAllNamed(Routes.HomePage);
         } else {
+          print("soos2");
           Get.offAllNamed(Routes.LoginPage);
         }
       } else {
+        print("soos3");
         Get.offAllNamed(Routes.LoginPage);
       }
     } else {
+      print("soos4");
       Get.offAllNamed(Routes.LoginPage);
     }
   }

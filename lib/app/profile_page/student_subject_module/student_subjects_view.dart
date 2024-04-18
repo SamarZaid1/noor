@@ -123,13 +123,13 @@ class StudentSubjectView extends View1<StudentSubjectController> {
                                                   fontSize: 10.sp))
                                     ],
                                   ),
-                                  Text(
+                                  /*Text(
                                       "${state!.data![index].schoolId!.name} - ${state!.data![index].divisionId!.name}",
                                       style: AppTheme.customHeadline3.copyWith(
                                           color: ThemeColor.grayColor,
                                           fontFamily: AppFonts.large,
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 10.sp))
+                                          fontSize: 10.sp))*/
                                 ],
                               ),
                             ),

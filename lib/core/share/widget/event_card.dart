@@ -43,14 +43,16 @@ class NewsCard extends StatelessWidget {
                     SizedBox(
                       height: 4.h,
                     ),
-                    Text("${title}",
+                SizedBox(
+                  width: 30.w,
+                  child:Text("${title}",
                         style: Theme.of(context)
                             .textTheme
                             .subtitle1!
                             .copyWith(
                             fontFamily: AppFonts.cairo,
-                            fontSize: 12.sp,
-                            color: ThemeColor.blackColor)),
+                            fontSize: 10.sp,
+                            color: ThemeColor.blackColor))),
                     SizedBox(
                       height: 1.h,
                     ),

@@ -8,19 +8,19 @@ class HandlerExptionsHepler {
     if (error is Exception) {
       try {
         String networkExceptions = "";
-        if (error is DioError) {
+        /*  if (error is DioError) {
           switch (error.type) {
             case DioErrorType.cancel:
               networkExceptions = "ordercancel".tr;
               break;
-            case DioErrorType.connectTimeout:
+           */ /* case DioErrorType.connectTimeout:
               networkExceptions = "endorder".tr;
-              break;
+              break;*/ /*
 
             case DioErrorType.receiveTimeout:
               networkExceptions = "endresponse".tr;
               break;
-            case DioErrorType.response:
+           */ /* case DioErrorType.response:
               switch (error.response!.statusCode) {
                 case 400:
                   networkExceptions = "datadenied".tr;
@@ -51,14 +51,15 @@ class HandlerExptionsHepler {
                   networkExceptions =
                       "recive".tr + " $responseCode " + "notfound".tr;
               }
-              break;
+              break;*/ /*
             case DioErrorType.sendTimeout:
               networkExceptions = "endsend";
               break;
-            case DioErrorType.other:
-              return "errorfound".tr;
+         */ /*   case DioErrorType.other:
+              return "errorfound".tr;*/ /*
           }
-        } else if (error is SocketException) {
+        } else*/
+        if (error is SocketException) {
           networkExceptions = "connectnet".tr;
         } else {
           networkExceptions = "unexperror".tr;
@@ -82,7 +83,7 @@ class HandlerExptionsHepler {
 
   String getMsgError(dynamic error) {
     if (error is DioError) {
-      return error.message;
+      return error.message ?? "";
     } else
       return error.toString();
   }

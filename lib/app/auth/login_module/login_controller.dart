@@ -48,6 +48,7 @@ class LoginController extends Contorller {
         await GetStorage().write('token', userContorller.user.value.data!.name);
         await GetStorage().write('email', userName);
         await GetStorage().write('password', password);
+        print(userContorller.user.value.toJson());
         await UserServiceGetStorage()
             .saveUser(data: userContorller.user.value.toJson());
         isLoading.value = false;

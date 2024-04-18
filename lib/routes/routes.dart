@@ -14,6 +14,7 @@ abstract class Routes {
   static String newsPage = '/newsPage';
   static String StudentSubjectView = '/StudentSubjectView';
   static String StudentExamView = '/StudentExamView';
+  static String StudentTimeTableView = '/StudentTimeTableView';
   static String StudentExamResultView = '/StudentExamResultView';
   static String StudentProfileView = '/StudentProfileView';
   static String StudentFeesView = '/StudentFeesView';

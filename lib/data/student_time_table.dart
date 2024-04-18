@@ -36,8 +36,8 @@ class Data {
   TeacherId? teacherId;
   TeacherId? subjectId;
   TeacherId? tableId;
-  int? startTime;
-  int? endTime;
+  double? startTime;
+  double? endTime;
   String? weekDay;
   TeacherId? classRoomId;
   TeacherId? standardId;
