@@ -31,7 +31,7 @@ class MessageView extends View1<MessageController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text("التعميمات ",
-                        style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             fontFamily: AppFonts.cairo,
                             fontSize: 14.sp,
                             color: ThemeColor.blackColor)),
@@ -50,13 +50,13 @@ class MessageView extends View1<MessageController> {
               TabBar(
                 unselectedLabelColor: Colors.black,
                 labelColor: ThemeColor.primaryColor,
-                labelStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+                labelStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontFamily: AppFonts.cairo,
                     fontSize: 11.sp,
                     color: ThemeColor.blackColor),
                 unselectedLabelStyle: Theme.of(context)
                     .textTheme
-                    .subtitle1!
+                    .titleMedium!
                     .copyWith(
                         fontFamily: AppFonts.cairo,
                         fontSize: 11.sp,

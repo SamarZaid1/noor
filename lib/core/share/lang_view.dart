@@ -6,8 +6,8 @@ import 'package:sizer/sizer.dart';
 
 class LangView {
   final List locale = [
-    {'name': 'ENGLISH', 'locale': Locale('en_US', 'US')},
-    {'name': 'عربي', 'locale': Locale('ar')},
+    {'name': 'ENGLISH', 'locale': const Locale('en_US', 'US')},
+    {'name': 'عربي', 'locale': const Locale('ar')},
   ];
   updateLanguage(Locale locale) {
     Get.back();
@@ -22,7 +22,7 @@ class LangView {
       title: "تغيير لغه التطبيق ",
       titleTextStyle: Theme.of(context)
           .textTheme
-          .subtitle2!
+          .titleSmall!
           .copyWith(fontSize: 10.sp, color: ThemeColor.primaryColor),
       body: Padding(
         padding: EdgeInsets.all(4.h),
@@ -35,7 +35,7 @@ class LangView {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     child: Text(locale[index]['name'],
-                        style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             fontSize: 10.sp,
                             color: ThemeColor.primaryColor)),
                     onTap: () {
@@ -55,6 +55,6 @@ class LangView {
         ),
       ),
       showCloseIcon: true,
-    )..show();
+    ).show();
   }
 }

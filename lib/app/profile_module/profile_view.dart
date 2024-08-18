@@ -26,7 +26,7 @@ class ProfileView extends View1<ProfileController> {
           appBar: AppBar(
             centerTitle: false,
             title: Text("الملف الشخصي",
-                style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontFamily: AppFonts.cairo,
                     fontSize: 12.sp,
                     color: ThemeColor.accentColor)),

@@ -214,7 +214,7 @@ class HomeBodyView extends View1<HomeController> {
                                     "مرحبا بك في  ${controller.userContorller.user.value.data!.student == null ? "" : controller.userContorller.user.value.data!.student!.schoolId!.name} ",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .subtitle1!
+                                        .titleMedium!
                                         .copyWith(
                                             fontFamily: AppFonts.cairo,
                                             fontSize: 10.sp,
@@ -223,7 +223,7 @@ class HomeBodyView extends View1<HomeController> {
                                     "${controller.userContorller.user.value.data!.name}",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .subtitle1!
+                                        .titleMedium!
                                         .copyWith(
                                             fontFamily: AppFonts.cairo,
                                             fontSize: 8.sp,
@@ -285,7 +285,7 @@ class HomeBodyView extends View1<HomeController> {
                                   Text("بيانات الطالب",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .subtitle1!
+                                          .titleMedium!
                                           .copyWith(
                                               fontFamily: AppFonts.cairo,
                                               fontSize: 9.sp,
@@ -294,7 +294,7 @@ class HomeBodyView extends View1<HomeController> {
                                       " # ${controller.userContorller.user.value.data!.id}",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .subtitle1!
+                                          .titleMedium!
                                           .copyWith(
                                               fontFamily: AppFonts.cairo,
                                               fontSize: 10.sp,
@@ -531,7 +531,7 @@ class HomeBodyView extends View1<HomeController> {
           Row(
             children: [
               Text(title,
-                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontFamily: AppFonts.cairo,
                       fontSize: 9.sp,
                       color: ThemeColor.fontColor)),

@@ -21,19 +21,19 @@ class SubjectWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("${subject_name}",
-                style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontFamily: AppFonts.cairo,
                     fontSize: 10.sp,
                     color: ThemeColor.blackColor)),
             Row(
               children: [
                 Text("${maximum_marks}",
-                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontFamily: AppFonts.cairo,
                         fontSize: 9.sp,
                         color: ThemeColor.blackColor)),
                 Text("/ ${minimum_marks}",
-                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontFamily: AppFonts.cairo,
                         fontSize: 9.sp,
                         color: ThemeColor.fontColor)),

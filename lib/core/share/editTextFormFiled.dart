@@ -41,7 +41,7 @@ class CustomEditTextFormFiled {
           // initialValue: initialValue,
           maxLength: maxlength,
           maxLines: maxLine,
-          style: Theme.of(context!).textTheme.subtitle2!.copyWith(
+          style: Theme.of(context!).textTheme.titleSmall!.copyWith(
                 fontSize: 9.sp,
                 color: ThemeColor.editTextColor,
               ),
@@ -83,11 +83,11 @@ class CustomEditTextFormFiled {
             ),
             hintText: hint,
             labelText: label,
-            labelStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
+            labelStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
                   fontSize: 9.sp,
                   color: ThemeColor.grayColor,
                 ),
-            hintStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+            hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 8.sp,
                   color: ThemeColor.grayColor,
                 ),

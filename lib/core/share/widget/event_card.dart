@@ -48,7 +48,7 @@ class NewsCard extends StatelessWidget {
                   child:Text("${title}",
                         style: Theme.of(context)
                             .textTheme
-                            .subtitle1!
+                            .titleMedium!
                             .copyWith(
                             fontFamily: AppFonts.cairo,
                             fontSize: 10.sp,
@@ -63,7 +63,7 @@ class NewsCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
-                                .subtitle1!
+                                .titleMedium!
                                 .copyWith(
                                 fontFamily: AppFonts.cairo,
                                 fontSize: 9.sp,

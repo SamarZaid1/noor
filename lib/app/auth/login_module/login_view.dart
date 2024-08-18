@@ -52,7 +52,7 @@ class LoginView extends View1<LoginController> {
                                     /*"loginTitle".tr*/ "اهلاً وسهلاََ بك",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .subtitle1!
+                                        .titleMedium!
                                         .copyWith(
                                             fontFamily: AppFonts.cairo,
                                             fontSize: 8.sp,
@@ -65,7 +65,7 @@ class LoginView extends View1<LoginController> {
                                     /*"login".tr*/ "تسجيل الدخول",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline1!
+                                        .displayLarge!
                                         .copyWith(
                                             fontWeight: FontWeight.bold,
                                             fontFamily: AppFonts.medium,
@@ -149,7 +149,7 @@ class LoginView extends View1<LoginController> {
                                       /*'didForgetPassword'.tr*/ "هل نسيت كلمة المرور",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .subtitle1!
+                                          .titleMedium!
                                           .copyWith(
                                               fontSize: 8.sp,
                                               color: ThemeColor.grayColor),
@@ -207,7 +207,7 @@ class LoginView extends View1<LoginController> {
                                                       /*'login'.tr*/ "تسجيل الدخول",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .headline1!
+                                                          .displayLarge!
                                                           .copyWith(
                                                               fontFamily:
                                                                   AppFonts

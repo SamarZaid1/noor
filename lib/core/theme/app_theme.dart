@@ -92,9 +92,9 @@ class AppTheme {
     dividerColor: ThemeColor.grayColor,
     dividerTheme: customDividerTheme(),
     indicatorColor: ThemeColor.grayColor,
-    bottomAppBarColor: ThemeColor.primaryColor,
-    errorColor: ThemeColor.errorColor,
-    backgroundColor: ThemeColor.bgAccentColor,
+    // bottomAppBarColor: ThemeColor.primaryColor,
+    // errorColor: ThemeColor.errorColor,
+    // backgroundColor: ThemeColor.bgAccentColor,
     fontFamily: appFontFamily,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     unselectedWidgetColor: ThemeColor.primaryColor,
@@ -281,16 +281,16 @@ class AppTheme {
 
   static customTextThem() {
     return TextTheme(
-      subtitle1: customSubtitle1,
-      subtitle2: customSubtitle2,
-      bodyText1: customBodyText1,
-      bodyText2: customBodyText2,
-      headline1: customHeadline1,
-      headline2: customHeadline2,
-      headline3: customHeadline3,
-      headline4: customHeadline4,
-      headline5: customHeadline5,
-      headline6: customHeadline6,
+      // subtitle1: customSubtitle1,
+      // subtitle2: customSubtitle2,
+      // bodyText1: customBodyText1,
+      // bodyText2: customBodyText2,
+      // headline1: customHeadline1,
+      // headline2: customHeadline2,
+      // headline3: customHeadline3,
+      // headline4: customHeadline4,
+      // headline5: customHeadline5,
+      // headline6: customHeadline6,
     );
   }
 

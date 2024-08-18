@@ -60,7 +60,7 @@ class NewsView extends View1<NewsController> {
                                   Text("${state!.data![index].displayName}",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .subtitle1!
+                                          .titleMedium!
                                           .copyWith(
                                               fontFamily: AppFonts.cairo,
                                               fontSize: 8.sp,
@@ -71,7 +71,7 @@ class NewsView extends View1<NewsController> {
                                   Text("${state!.data![index].date}",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .subtitle1!
+                                          .titleMedium!
                                           .copyWith(
                                               fontFamily: AppFonts.cairo,
                                               fontSize: 8.sp,
@@ -84,7 +84,7 @@ class NewsView extends View1<NewsController> {
                                           overflow: TextOverflow.ellipsis,
                                           style: Theme.of(context)
                                               .textTheme
-                                              .subtitle1!
+                                              .titleMedium!
                                               .copyWith(
                                                   fontFamily: AppFonts.cairo,
                                                   fontSize: 9.sp,
@@ -103,7 +103,7 @@ class NewsView extends View1<NewsController> {
                           Text("${state!.data![index].description}",
                               style: Theme.of(context)
                                   .textTheme
-                                  .subtitle1!
+                                  .titleMedium!
                                   .copyWith(
                                       fontFamily: AppFonts.cairo,
                                       fontSize: 8.sp,

@@ -32,7 +32,7 @@ class EventWidget extends StatelessWidget {
                       child: Text("${title}",
                           style: Theme.of(context)
                               .textTheme
-                              .subtitle1!
+                              .titleMedium!
                               .copyWith(
                                   fontFamily: AppFonts.cairo,
                                   fontSize: 8.sp,
@@ -45,7 +45,7 @@ class EventWidget extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
-                              .subtitle1!
+                              .titleMedium!
                               .copyWith(
                                   fontFamily: AppFonts.cairo,
                                   fontSize: 9.sp,
@@ -77,7 +77,7 @@ class EventWidget extends StatelessWidget {
                             'لنبدا',
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .displayLarge!
                                 .copyWith(
                                     fontFamily: AppFonts.large,
                                     fontSize: 10.sp,

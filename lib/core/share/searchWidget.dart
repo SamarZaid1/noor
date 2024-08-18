@@ -27,7 +27,7 @@ class SearchWidget {
                           onChanged: onChanga,
                           style: Theme.of(context!)
                               .textTheme
-                              .subtitle2!
+                              .titleSmall!
                               .copyWith(
                               fontSize: 8.sp,
                               color: ThemeColor.grayColor),
@@ -37,7 +37,7 @@ class SearchWidget {
                             hintText: title!,
                             hintStyle: Theme.of(context)
                                 .textTheme
-                                .subtitle2!
+                                .titleSmall!
                                 .copyWith(
                                 fontSize: 8.sp,
                                 color: ThemeColor.grayColor),
@@ -83,7 +83,7 @@ class SearchWidget {
         children: [
           Text(
             titleText,
-            style: Theme.of(context).textTheme.headline1!.copyWith(
+            style: Theme.of(context).textTheme.displayLarge!.copyWith(
                   fontSize: 10.sp,
                 ),
           ),

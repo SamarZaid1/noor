@@ -33,7 +33,7 @@ class EventView extends View1<EventController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text("الفعاليات",
-                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontFamily: AppFonts.cairo,
                         fontSize: 14.sp,
                         color: ThemeColor.blackColor)),

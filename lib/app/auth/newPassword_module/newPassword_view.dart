@@ -52,7 +52,7 @@ class NewPasswordView extends View1<NewPasswordController> {
                                     /*"loginTitle".tr*/ "اهلاً وسهلاََ بك",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .subtitle1!
+                                        .titleMedium!
                                         .copyWith(
                                             fontFamily: AppFonts.cairo,
                                             fontSize: 8.sp,
@@ -65,7 +65,7 @@ class NewPasswordView extends View1<NewPasswordController> {
                                     /*"login".tr*/ "انشاء كلمة مرور جديدة",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline1!
+                                        .displayLarge!
                                         .copyWith(
                                             fontWeight: FontWeight.bold,
                                             fontFamily: AppFonts.medium,
@@ -216,7 +216,7 @@ class NewPasswordView extends View1<NewPasswordController> {
                                                       /*'login'.tr*/ "انشاء كلمة مرور جديده",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .headline1!
+                                                          .displayLarge!
                                                           .copyWith(
                                                               fontFamily:
                                                                   AppFonts
