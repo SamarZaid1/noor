@@ -396,10 +396,10 @@ packages:
     dependency: "direct main"
     description:
       name: persistent_bottom_nav_bar
-      sha256: e2e031e3366fde01511e372a9a19d720a9b252bb456e5c8d77a30d7a4a2ddfb0
+      sha256: c1c9a03aaa4d0efb448fbc81a4616af760a43fe4da4a43fd96d748e176680896
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.2"
+    version: "5.0.1"
   petitparser:
     dependency: transitive
     description:
